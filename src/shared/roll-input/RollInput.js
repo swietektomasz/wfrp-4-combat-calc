@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Field } from "formik";
+import { Field, useField } from "formik";
+
 import { Input } from "../input/Input";
 
 export function RollInput({ name, label }) {
-  const [value, setValue] = useState("");
+  const [, , helpers] = useField(name);
+  const { setValue } = helpers;
+
   const Roll = () => setValue(Math.floor(Math.random() * 100) + 1);
 
   return (
     <div>
-      <Field type="number" name={name} value={value} onChange={() => {}}>
-        {({ field }) => <Input field={field} label={label} />}
-      </Field>
+      <Field type="number" name={name} component={Input} label={label} />
       <button type="button" onClick={Roll}>
         Roll
       </button>

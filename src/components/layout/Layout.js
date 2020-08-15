@@ -6,17 +6,17 @@ import "./layout.css";
 
 export function Layout() {
   return (
-    <div className="wrapper">
-      <div className="main-view">
-        <div className="player-list">Player list</div>
-        <div className="player-stats">
+    <div className="layout-wrapper">
+      <div className="layout-main-view">
+        <div className="layout-player-list">Player list</div>
+        <div className="layout-player-stats">
           <StatsBlock />
         </div>
-        <div className="action-pane">Attack/defend buttons</div>
-        <div className="enemy-stats">Enemy stats</div>
-        <div className="enemy-list">Enemy list</div>
+        <div className="layout-action-pane">Attack/defend buttons</div>
+        <div className="layout-enemy-stats">Enemy stats</div>
+        <div className="layout-enemy-list">Enemy list</div>
       </div>
-      <div className="turn-timer">Turn timer</div>
+      <div className="layout-turn-timer">Turn timer</div>
     </div>
   );
 }

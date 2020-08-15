@@ -4,7 +4,26 @@
     "health": 10,
     "attack-roll": 100,
     "location-roll": 100,
-    "critical-hit": false
+    "critical-hit": false,
+    "defense-skill": 41,
+    "defense-roll": 100,
+    "crit-location": 100,
+    "weapon-damage": 5,
+    "weapon-qualities": ["defensive", "fast", "long"],
+    "armour": {
+      "head": 1,
+      "body": 1,
+      "left-arm": 1,
+      "right-arm": 1,
+      "left-leg": 1,
+      "right-leg": 1
+    },
+    "advantage": 1,
+    "other-bonus": 20,
+    "fumble-roll": 100,
+    "conditions": { "bleeding": 1, "stunned": 1 },
+    "unconcious": false,
+    "toughness-bonus": 3
   },
   "enemy": {
     "attack-skill": 40,
