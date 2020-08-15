@@ -1,0 +1,16 @@
+{
+  "player": {
+    "attack-skill": 40,
+    "health": 10,
+    "attack-roll": 100,
+    "location-roll": 100,
+    "critical-hit": false
+  },
+  "enemy": {
+    "attack-skill": 40,
+    "health": 10,
+    "roll-result": 100,
+    "location-roll": 100,
+    "critical-hit": false
+  }
+}

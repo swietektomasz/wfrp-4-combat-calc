@@ -1,8 +1,12 @@
 import React from "react";
 import { render } from "react-dom";
 
+import { Layout } from "./components";
+
+import "./app.css";
+
 function App() {
-  return <div>Hello</div>;
+  return <Layout />;
 }
 
 render(<App />, document.getElementById("app"));

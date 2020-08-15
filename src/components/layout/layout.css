@@ -1,0 +1,61 @@
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-view {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 80%;
+}
+
+.turn-timer {
+  display: flex;
+  flex-basis: 15%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border: 1px black solid;
+}
+
+.player-list {
+  display: flex;
+  flex-basis: 10%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border: 1px black solid;
+}
+
+.player-stats {
+  display: flex;
+  flex-basis: 20%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border: 1px black solid;
+}
+
+.action-pane {
+  display: flex;
+  flex-basis: 10%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border: 1px black solid;
+}
+
+.enemy-stats {
+  display: flex;
+  flex-basis: 20%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border: 1px black solid;
+}
+
+.enemy-list {
+  display: flex;
+  flex-basis: 10%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border: 1px black solid;
+}
