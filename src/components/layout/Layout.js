@@ -10,10 +10,12 @@ export function Layout() {
       <div className="layout-main-view">
         <div className="layout-player-list">Player list</div>
         <div className="layout-player-stats">
-          <StatsBlock />
+          <StatsBlock enemy={false} />
         </div>
         <div className="layout-action-pane">Attack/defend buttons</div>
-        <div className="layout-enemy-stats">Enemy stats</div>
+        <div className="layout-enemy-stats">
+          <StatsBlock enemy={true} />
+        </div>
         <div className="layout-enemy-list">Enemy list</div>
       </div>
       <div className="layout-turn-timer">Turn timer</div>

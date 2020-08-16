@@ -1,0 +1,8 @@
+.rolls-panel-wrapper {
+  display: flex;
+  flex-basis: 5%;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-direction: row;
+  align-items: center;
+}

@@ -1,0 +1,42 @@
+.roll-input-label {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  margin: 8px;
+}
+
+.roll-input-wrapper {
+  display: flex;
+  margin: 0 auto;
+}
+
+.roll-button {
+  background-color: var(--main-color);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid var(--dark-color);
+  display: flex;
+  font-size: larger;
+  height: 34px;
+  text-align: center;
+  transition: ease-in-out 0.1s background-color;
+  width: 34px;
+  padding: 5px 4px;
+  color: var(--dark-color);
+  margin-left: -1px;
+}
+
+.roll-button:hover {
+  background-color: var(--secondary-darker);
+  transition: ease-in-out 0.1s background-color;
+}
+
+.roll-input-input {
+  border: 1px grey solid;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  height: 30px;
+  width: 30px;
+  font-size: large;
+  text-align: center;
+}

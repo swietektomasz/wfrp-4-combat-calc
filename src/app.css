@@ -5,9 +5,19 @@ body {
   font-family: "PT Sans", sans-serif;
   width: 100vw;
   height: 100vh;
+  background-color: var(--light-color);
+  color: var(--dark-color);
 }
 
 #app {
   width: 100vw;
   height: 100vh;
+}
+
+:root {
+  --main-color: #9f9ba1;
+  --secondary-darker: #807d7f;
+  --secondary-lighter: #7b8487;
+  --light-color: #f4f1f4;
+  --dark-color: #30272d;
 }

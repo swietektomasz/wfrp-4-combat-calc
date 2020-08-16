@@ -1,15 +1,21 @@
 .label {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .input {
   border: 1px grey solid;
   border-radius: 5px;
+  height: 30px;
+  width: 30px;
+  font-size: large;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .input:hover {
-  background-color: whitesmoke;
+  background-color: var(--light-color);
 }
 
 .input:focus {
