@@ -7,27 +7,14 @@ import { RollsPanel } from "src/components";
 
 import "./stats-block.css";
 import { CharacterProfile } from "../character-profile/CharacterProfile";
-
-const INITIAL_VALUES = {
-  attackRoll: 10,
-  defenseRoll: 10,
-  playerDefense: 10,
-  playerHealth: 10,
-  playerAttack: 10,
-  weaponDamage: 1,
-  toughnessBonus: 1,
-  armourHead: 1,
-  armourBody: 1,
-  armourLeftArm: 1,
-  armourRightArm: 1,
-  armourLeftLeg: 1,
-  armourRightLeg: 1,
-  strengthBonus: 1,
-};
+import { usePlayerState } from "src/context/";
 
 export function StatsBlock({ enemy }) {
+  const state = usePlayerState();
+
+  console.log(state);
   return (
-    <Formik initialValues={INITIAL_VALUES} enableReinitialize>
+    <Formik initialValues={state} enableReinitialize>
       <Form className="stats-block-pane">
         <h1>Player name</h1>
         <RollsPanel />

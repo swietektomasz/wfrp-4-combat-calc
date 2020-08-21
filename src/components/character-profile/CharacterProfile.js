@@ -22,30 +22,30 @@ export function CharacterProfile({ enemy }) {
           className="character-profile-shield-icon"
           title="Armour values"
         />
-        <Field component={Input} type="number" name="armourHead" label="H" />
-        <Field component={Input} type="number" name="armourBody" label="B" />
+        <Field component={Input} type="number" name="armour.head" label="H" />
+        <Field component={Input} type="number" name="armour.body" label="B" />
         <Field
           component={Input}
           type="number"
-          name="armourLeftArm"
+          name="armour.leftArm"
           label="LA"
         />
         <Field
           component={Input}
           type="number"
-          name="armourRightArm"
+          name="armour.rightArm"
           label="RA"
         />
         <Field
           component={Input}
           type="number"
-          name="armourLeftLeg"
+          name="armour.leftLeg"
           label="LL"
         />
         <Field
           component={Input}
           type="number"
-          name="armourRightLeg"
+          name="armour.rightLeg"
           label="RL"
         />
       </div>
@@ -53,7 +53,7 @@ export function CharacterProfile({ enemy }) {
       <div className="character-profile-bottom">
         <Field
           type="number"
-          name="playerHealth"
+          name="stats.health"
           label="Wounds"
           component={Input}
         />
@@ -62,13 +62,13 @@ export function CharacterProfile({ enemy }) {
         <Field
           component={Input}
           label="TB"
-          name="toughnessBonus"
+          name="stats.toughnessBonus"
           type="number"
         />
         <Field
           component={Input}
           label="SB"
-          name="strengthBonus"
+          name="stats.strengthBonus"
           type="number"
         />
       </div>
