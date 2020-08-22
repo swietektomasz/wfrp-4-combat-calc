@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StatsBlock, PlayerList } from "src/components";
+import { StatsBlock, CharacterList } from "src/components";
 
 import "./layout.css";
 import { PlayerProvider } from "src/context";
@@ -11,7 +11,7 @@ export function Layout() {
       <div className="layout-wrapper">
         <div className="layout-main-view">
           <div className="layout-player-list">
-            <PlayerList />
+            <CharacterList enemy={false} />
           </div>
           <div className="layout-player-stats">
             <StatsBlock enemy={false} />
@@ -20,7 +20,9 @@ export function Layout() {
           <div className="layout-enemy-stats">
             <StatsBlock enemy={true} />
           </div>
-          <div className="layout-enemy-list">Enemy list</div>
+          <div className="layout-enemy-list">
+            <CharacterList enemy={true} />
+          </div>
         </div>
         <div className="layout-turn-timer">Turn timer</div>
       </div>

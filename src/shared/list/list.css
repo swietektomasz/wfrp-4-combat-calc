@@ -1,0 +1,13 @@
+.list-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  width: 100%;
+}
+
+.list-character-button {
+  flex-basis: 100px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+}

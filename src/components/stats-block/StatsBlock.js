@@ -3,20 +3,18 @@ import { Formik, Form, Field } from "formik";
 import PropTypes from "prop-types";
 
 import { Input } from "shared";
-import { RollsPanel } from "src/components";
+import { CharacterProfile, RollsPanel } from "src/components";
+import { usePlayerState } from "src/context";
 
 import "./stats-block.css";
-import { CharacterProfile } from "../character-profile/CharacterProfile";
-import { usePlayerState } from "src/context/";
 
 export function StatsBlock({ enemy }) {
-  const state = usePlayerState();
+  const { playerById, enemyById } = usePlayerState();
 
-  console.log(state);
   return (
-    <Formik initialValues={state} enableReinitialize>
+    <Formik initialValues={enemy ? enemyById : playerById} enableReinitialize>
       <Form className="stats-block-pane">
-        <h1>Player name</h1>
+        <h1>{enemy ? enemyById.name : playerById.name}</h1>
         <RollsPanel />
         <div>
           <Field
