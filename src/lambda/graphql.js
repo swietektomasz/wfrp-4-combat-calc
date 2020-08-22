@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require("apollo-server-lambda");
+const { characterData } = require("../server/db");
 
 const typeDefs = gql`
   type Query {
@@ -9,7 +10,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     hello: () => {
-      return "Hello, world!";
+      return characterData;
     },
   },
 };
