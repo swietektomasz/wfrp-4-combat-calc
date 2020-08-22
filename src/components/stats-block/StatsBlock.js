@@ -7,9 +7,12 @@ import { CharacterProfile, RollsPanel } from "src/components";
 import { usePlayerState } from "src/context";
 
 import "./stats-block.css";
+import { useGetCharacters } from "src/graphql";
 
 export function StatsBlock({ enemy }) {
   const { playerById, enemyById } = usePlayerState();
+  const { characters } = useGetCharacters();
+  console.log(characters);
 
   return (
     <Formik initialValues={enemy ? enemyById : playerById} enableReinitialize>

@@ -35,6 +35,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/i,
         loader: "file-loader",
       },
+      { test: /\.gql?$/, loader: "webpack-graphql-loader" },
     ],
   },
   plugins: [

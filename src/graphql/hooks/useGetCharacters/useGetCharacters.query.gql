@@ -1,0 +1,30 @@
+# Write your query or mutation here
+query getAllCharacters {
+  allCharacters {
+    _id
+    name
+    combat {
+      attack {
+        skillName
+        value
+      }
+    }
+    stats {
+      health
+      toughnessBonus
+      strengthBonus
+    }
+    weapon {
+      damage
+      qualities
+    }
+    armour {
+      head
+      body
+      leftArm
+      rightArm
+      leftLeg
+      rightLeg
+    }
+  }
+}

@@ -7,11 +7,8 @@
   "author": "swietektomasz <swietek.tomasz@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "run-p build:**",
-    "build:app": "webpack --mode production",
-    "build:lambda": "netlify-lambda build src/lambda",
-    "start": "webpack-dev-server",
-    "start:lambda": "netlify-lambda serve src/lambda"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -52,6 +49,7 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
+    "webpack-graphql-loader": "^1.0.2",
     "yup": "^0.29.3"
   },
   "browserslist": [

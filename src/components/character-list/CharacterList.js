@@ -11,7 +11,6 @@ export function CharacterList({ enemy }) {
   const dispatch = usePlayerDispatch();
 
   const getCharacter = (id) => () => {
-    console.log(id);
     if (enemy) {
       return dispatch({ type: "get-enemy-by-id", id });
     }
