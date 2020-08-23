@@ -7,13 +7,13 @@ import { Input } from "shared";
 
 import "./character-profile.css";
 
-export function CharacterProfile({ enemy }) {
+export function CharacterProfile({ player }) {
   return (
     <div
       className={
-        enemy
-          ? "character-profile-wrapper-right"
-          : "character-profile-wrapper-left"
+        player
+          ? "character-profile-wrapper-left"
+          : "character-profile-wrapper-right"
       }
     >
       <div className="character-profile-column">
@@ -77,5 +77,5 @@ export function CharacterProfile({ enemy }) {
 }
 
 CharacterProfile.propTypes = {
-  enemy: PropTypes.bool,
+  player: PropTypes.bool,
 };

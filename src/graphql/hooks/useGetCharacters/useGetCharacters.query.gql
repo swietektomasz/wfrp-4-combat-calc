@@ -1,8 +1,9 @@
-# Write your query or mutation here
 query getAllCharacters {
   allCharacters {
     _id
     name
+    isPlayer
+    lastRoll
     combat {
       attack {
         skillName

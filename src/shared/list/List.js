@@ -8,9 +8,9 @@ export function List({ characters, onClick }) {
     <div className="list-wrapper">
       {characters.map((character) => (
         <button
-          onClick={onClick(character.id)}
+          onClick={onClick(character._id, character.isPlayer)}
           className="list-character-button"
-          key={character.id}
+          key={character._id}
         >
           {character.name}
         </button>

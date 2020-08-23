@@ -4,20 +4,14 @@ import PropTypes from "prop-types";
 
 import { Input } from "shared";
 import { CharacterProfile, RollsPanel } from "src/components";
-import { usePlayerState } from "src/context";
 
 import "./stats-block.css";
-import { useGetCharacters } from "src/graphql";
 
-export function StatsBlock({ enemy }) {
-  const { playerById, enemyById } = usePlayerState();
-  const { characters } = useGetCharacters();
-  console.log(characters);
-
+export function StatsBlock({ character }) {
   return (
-    <Formik initialValues={enemy ? enemyById : playerById} enableReinitialize>
+    <Formik initialValues={character} enableReinitialize>
       <Form className="stats-block-pane">
-        <h1>{enemy ? enemyById.name : playerById.name}</h1>
+        <h1>{character.name}</h1>
         <RollsPanel />
         <div>
           <Field
@@ -27,12 +21,12 @@ export function StatsBlock({ enemy }) {
             component={Input}
           />
         </div>
-        <CharacterProfile enemy={enemy} />
+        <CharacterProfile player={character.isPlayer} />
       </Form>
     </Formik>
   );
 }
 
 StatsBlock.propTypes = {
-  enemy: PropTypes.bool,
+  character: PropTypes.object,
 };

@@ -9,8 +9,13 @@ module.exports = {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   devServer: {
-    contentBase: "./dist",
+    contentBase: path.join(__dirname, "dist"),
     hot: true,
     compress: true,
     quiet: true,
@@ -35,7 +40,11 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/i,
         loader: "file-loader",
       },
-      { test: /\.gql?$/, loader: "webpack-graphql-loader" },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: "graphql-tag/loader",
+      },
     ],
   },
   plugins: [

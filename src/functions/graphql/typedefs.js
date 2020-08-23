@@ -33,6 +33,7 @@ module.exports = gql`
 
   type Character {
     _id: ID!
+    isPlayer: Boolean
     name: String
     lastRoll: Int
     combat: CombatStats

@@ -1,10 +1,10 @@
 import getAllCharactersQuery from "./useGetCharacters.query.gql";
-import { useQuery } from "react-apollo";
+import { useQuery } from "@apollo/client";
 
 export function useGetCharacters() {
   const { loading, error, data } = useQuery(getAllCharactersQuery);
 
-  const characters = data ? data : [];
+  const characters = data?.allCharacters ?? [];
 
   return { characters, error, loading };
 }
