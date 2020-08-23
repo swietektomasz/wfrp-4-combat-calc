@@ -1,0 +1,23 @@
+.text-input-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-input {
+  border: 1px grey solid;
+  border-radius: 5px;
+  height: 30px;
+  width: 120px;
+  font-size: large;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.text-input:hover {
+  background-color: var(--light-color);
+}
+
+.text-input:focus {
+  border: 1px lightgrey solid;
+}

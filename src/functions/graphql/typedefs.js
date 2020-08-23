@@ -42,7 +42,16 @@ module.exports = gql`
     armour: Armour
   }
 
+  input CreateCharacterInput {
+    name: String!
+    isPlayer: Boolean!
+  }
+
   type Query {
     allCharacters: [Character]
+  }
+
+  type Mutation {
+    createCharacter(input: CreateCharacterInput!): Character
   }
 `;

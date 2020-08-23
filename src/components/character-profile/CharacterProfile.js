@@ -3,7 +3,7 @@ import { Field } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
 
-import { Input } from "shared";
+import { NumericInput } from "shared";
 
 import "./character-profile.css";
 
@@ -22,28 +22,38 @@ export function CharacterProfile({ player }) {
           className="character-profile-shield-icon"
           title="Armour values"
         />
-        <Field component={Input} type="number" name="armour.head" label="H" />
-        <Field component={Input} type="number" name="armour.body" label="B" />
         <Field
-          component={Input}
+          component={NumericInput}
+          type="number"
+          name="armour.head"
+          label="H"
+        />
+        <Field
+          component={NumericInput}
+          type="number"
+          name="armour.body"
+          label="B"
+        />
+        <Field
+          component={NumericInput}
           type="number"
           name="armour.leftArm"
           label="LA"
         />
         <Field
-          component={Input}
+          component={NumericInput}
           type="number"
           name="armour.rightArm"
           label="RA"
         />
         <Field
-          component={Input}
+          component={NumericInput}
           type="number"
           name="armour.leftLeg"
           label="LL"
         />
         <Field
-          component={Input}
+          component={NumericInput}
           type="number"
           name="armour.rightLeg"
           label="RL"
@@ -55,18 +65,18 @@ export function CharacterProfile({ player }) {
           type="number"
           name="stats.health"
           label="Wounds"
-          component={Input}
+          component={NumericInput}
         />
       </div>
       <div className="character-profile-column">
         <Field
-          component={Input}
+          component={NumericInput}
           label="TB"
           name="stats.toughnessBonus"
           type="number"
         />
         <Field
-          component={Input}
+          component={NumericInput}
           label="SB"
           name="stats.strengthBonus"
           type="number"
