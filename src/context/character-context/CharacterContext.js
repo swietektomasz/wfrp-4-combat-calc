@@ -58,9 +58,7 @@ function characterReducer(state, action) {
     case "get-player-by-id": {
       return {
         ...state,
-        characterById: state.playerList.find(
-          (player) => player._id === action.id
-        ),
+        playerById: state.playerList.find((player) => player._id === action.id),
       };
     }
 
