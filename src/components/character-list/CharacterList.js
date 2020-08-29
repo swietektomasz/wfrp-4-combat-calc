@@ -3,13 +3,16 @@ import PropTypes from "prop-types";
 
 import { List } from "shared";
 import { useCharacterDispatch } from "src/context";
+import { useRemoveCharacter } from "src/graphql";
 
 import "./character-list.css";
 
 export function CharacterList({ characters }) {
   const dispatch = useCharacterDispatch();
 
-  const getCharacter = (id, isPlayer) => () => {
+  const { removeCharacterMutation } = useRemoveCharacter();
+
+  const selectCharacter = (id, isPlayer) => () => {
     if (isPlayer) {
       return dispatch({ type: "get-player-by-id", id });
     }
@@ -18,7 +21,11 @@ export function CharacterList({ characters }) {
 
   return (
     <div className="character-list-wrapper">
-      <List onClick={getCharacter} characters={characters} />
+      <List
+        remove={removeCharacterMutation}
+        select={selectCharacter}
+        characters={characters}
+      />
     </div>
   );
 }

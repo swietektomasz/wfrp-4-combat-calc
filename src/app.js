@@ -7,6 +7,9 @@ import {
   faDice,
   faDiceD20,
   faShieldAlt,
+  faEdit,
+  faCopy,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Layout } from "./components";
@@ -15,7 +18,7 @@ import { CharacterProvider } from "./context";
 import "./app.css";
 import { client } from "./graphql";
 
-library.add(fab, faDice, faDiceD20, faShieldAlt);
+library.add(fab, faDice, faDiceD20, faShieldAlt, faEdit, faCopy, faTrash);
 
 function App() {
   return (

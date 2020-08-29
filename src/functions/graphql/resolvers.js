@@ -1,3 +1,5 @@
+const ObjectID = require("mongodb").ObjectID;
+
 module.exports = (db) => ({
   Query: {
     allCharacters: async () =>
@@ -11,6 +13,9 @@ module.exports = (db) => ({
         .then(({ insertedId }) => ({ _id: insertedId }));
 
       return result;
+    },
+    removeCharacter: async (_, { input: { _id } }) => {
+      await db.collection("characters").deleteOne({ _id: ObjectID(_id) }, true);
     },
   },
 });

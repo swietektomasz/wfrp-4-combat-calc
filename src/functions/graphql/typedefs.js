@@ -86,11 +86,16 @@ module.exports = gql`
     armour: ArmourInput
   }
 
+  input RemoveCharacterInput {
+    _id: String!
+  }
+
   type Query {
     allCharacters: [Character]
   }
 
   type Mutation {
     createCharacter(input: CreateCharacterInput!): Character
+    removeCharacter(input: RemoveCharacterInput!): Character
   }
 `;

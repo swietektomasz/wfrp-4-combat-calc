@@ -5,9 +5,29 @@
   width: 100%;
 }
 
+.list-button-wrapper-left {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.list-button-wrapper-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-side-buttons {
+  display: flex;
+  flex-basis: 20%;
+  flex-direction: column;
+}
+
+.list-side-button {
+  flex-grow: 1;
+}
+
 .list-character-button {
-  flex-basis: 100px;
+  flex-basis: 80%;
   flex-grow: 0;
   flex-shrink: 0;
-  width: 100%;
+  height: 100px;
 }

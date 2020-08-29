@@ -29,11 +29,10 @@ export function CreateCharacterModal({ isPlayer }) {
         <div className="modal-content">
           <Formik
             initialValues={INITIAL_VALUES}
-            onSubmit={(values) =>
-              createCharacterMutation({ ...values, isPlayer }).then(() =>
-                setModalOpen(false)
-              )
-            }
+            onSubmit={async (values) => {
+              await createCharacterMutation({ ...values, isPlayer });
+              setModalOpen(false);
+            }}
             validationSchema={SCHEMA}
           >
             <Form className="create-character-form-wrapper">
