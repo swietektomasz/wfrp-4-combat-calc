@@ -3,25 +3,31 @@ import { object, string, number } from "yup";
 export const SCHEMA = object().shape({
   name: string().required(),
   combat: object({
-    attack: object({ value: number(), skillName: string() }),
-    defense: object({ value: number(), skillName: string() }),
+    attack: object({
+      value: number().required(),
+      skillName: string().required(),
+    }),
+    defense: object({
+      value: number().required(),
+      skillName: string().required(),
+    }),
   }),
   stats: object().shape({
-    health: number(),
-    toughnessBonus: number(),
-    strengthBonus: number(),
+    health: number().required(),
+    toughnessBonus: number().required(),
+    strengthBonus: number().required(),
   }),
   weapon: object().shape({
-    damage: number(),
-    qualities: string(),
+    damage: number().required(),
+    qualities: string().required(),
   }),
   armour: object().shape({
-    head: number(),
-    body: number(),
-    leftArm: number(),
-    rightArm: number(),
-    leftLeg: number(),
-    rightLeg: number(),
+    head: number().required(),
+    body: number().required(),
+    leftArm: number().required(),
+    rightArm: number().required(),
+    leftLeg: number().required(),
+    rightLeg: number().required(),
   }),
 });
 
