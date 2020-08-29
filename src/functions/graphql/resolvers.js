@@ -4,11 +4,13 @@ module.exports = (db) => ({
       await db.collection("characters").find().toArray(),
   },
   Mutation: {
-    createCharacter: async (_, { input }) => {
-      await db
+    createCharacter: async (_, { input: { character } }) => {
+      const result = await db
         .collection("characters")
-        .insertOne({ ...input })
+        .insertOne({ ...character })
         .then(({ insertedId }) => ({ _id: insertedId }));
+
+      return result;
     },
   },
 });

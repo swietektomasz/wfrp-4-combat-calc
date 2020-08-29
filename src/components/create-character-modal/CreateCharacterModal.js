@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Formik, Field, Form } from "formik";
 
-import { TextInput } from "shared";
+import { TextInput, NumericInput } from "shared";
 import { useCreateCharacter } from "src/graphql";
+
+import { SCHEMA, INITIAL_VALUES } from "./CreateCharacterFormSchema";
 
 import "./create-character-modal.css";
 
 export function CreateCharacterModal({ isPlayer }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const { createCharacterMutation } = useCreateCharacter();
+  const { createCharacterMutation, loading } = useCreateCharacter();
+
   return (
     <div>
       <button
@@ -25,125 +28,159 @@ export function CreateCharacterModal({ isPlayer }) {
       >
         <div className="modal-content">
           <Formik
-            initialValues={{ name: "" }}
-            onSubmit={({ name }) => createCharacterMutation({ name, isPlayer })}
+            initialValues={INITIAL_VALUES}
+            onSubmit={(values) =>
+              createCharacterMutation({ ...values, isPlayer }).then(() =>
+                setModalOpen(false)
+              )
+            }
+            validationSchema={SCHEMA}
           >
             <Form className="create-character-form-wrapper">
               <div className="create-character-full-pane">
                 <Field
-                  type="text"
-                  name="name"
-                  label="Character name"
                   component={TextInput}
+                  label="Character name"
+                  name="name"
                 />
               </div>
               <div className="create-character-half-pane">
                 <h3 className="create-character-pane-title">
                   Combat statistics
                 </h3>
-                <Field
-                  type="text"
-                  name="combat.attack.value"
-                  label="Attack stat value"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="combat.attack.skillName"
-                  label="Attack skill name"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="combat.defense.value"
-                  label="Defense stat value"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="combat.defense.skillName"
-                  label="Defense skill name"
-                  component={TextInput}
-                />
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Attack stat value"
+                    name="combat.attack.value"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={TextInput}
+                    label="Attack skill name"
+                    name="combat.attack.skillName"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Defense stat value"
+                    name="combat.defense.value"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={TextInput}
+                    label="Defense skill name"
+                    name="combat.defense.skillName"
+                  />
+                </div>
               </div>
               <div className="create-character-half-pane">
                 <h3 className="create-character-pane-title">
                   Character statistics
                 </h3>
-                <Field
-                  type="text"
-                  name="stats.health"
-                  label="Wounds"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="stats.toughnessBonus"
-                  label="Toughness Bonus"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="stats.strengthBonus"
-                  label="Strength Bonus"
-                  component={TextInput}
-                />
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Wounds"
+                    name="stats.health"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Toughness Bonus"
+                    name="stats.toughnessBonus"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Strength Bonus"
+                    name="stats.strengthBonus"
+                  />
+                </div>
               </div>
               <div className="create-character-half-pane">
                 <h3 className="create-character-pane-title">Weapon</h3>
-                <Field
-                  type="text"
-                  name="weapon.damage"
-                  label="Weapon Damage"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="weapon.qualities"
-                  label="Weapon Qualities"
-                  component={TextInput}
-                />
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Weapon Damage"
+                    name="weapon.damage"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={TextInput}
+                    label="Weapon Qualities"
+                    name="weapon.qualities"
+                  />
+                </div>
               </div>
               <div className="create-character-half-pane">
                 <h3 className="create-character-pane-title">Armour values</h3>
-                <Field
-                  type="text"
-                  name="armour.head"
-                  label="Head Armour Points"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="armour.body"
-                  label="Body Armour Points"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="armour.leftArm"
-                  label="Left Arm Armour Points"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="armour.rightArm"
-                  label="Right Arm Armour Points"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="armour.leftLeg"
-                  label="Left Leg Armour Points"
-                  component={TextInput}
-                />
-                <Field
-                  type="text"
-                  name="armour.rightLeg"
-                  label="Right Leg Armour Points"
-                  component={TextInput}
-                />
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Head Armour Points"
+                    name="armour.head"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Body Armour Points"
+                    name="armour.body"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Left Arm Armour Points"
+                    name="armour.leftArm"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Right Arm Armour Points"
+                    name="armour.rightArm"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Left Leg Armour Points"
+                    name="armour.leftLeg"
+                  />
+                </div>
+
+                <div className="create-character-input-wrapper">
+                  <Field
+                    component={NumericInput}
+                    label="Right Leg Armour Points"
+                    name="armour.rightLeg"
+                  />
+                </div>
               </div>
-              <button className="create-character-button" type="submit">
+              <button
+                className="create-character-button"
+                disabled={loading}
+                type="submit"
+              >
                 Create
               </button>
             </Form>

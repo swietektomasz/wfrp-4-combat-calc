@@ -1,7 +1,6 @@
 .numeric-input-label {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .numeric-input {
@@ -20,4 +19,15 @@
 
 .numeric-input:focus {
   border: 1px lightgrey solid;
+}
+
+.error {
+  border: 1px red solid;
+}
+
+.text-input-helper-text {
+  margin: 0;
+  padding: 0;
+  color: var(--secondary-darker);
+  font-size: small;
 }

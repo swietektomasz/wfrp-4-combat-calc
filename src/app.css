@@ -21,3 +21,13 @@ body {
   --light-color: #f4f1f4;
   --dark-color: #30272d;
 }
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
