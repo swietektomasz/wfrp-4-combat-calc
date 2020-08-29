@@ -6,3 +6,7 @@
   flex-shrink: 1;
   justify-content: space-between;
 }
+
+.stats-block-character-name {
+  text-align: center;
+}

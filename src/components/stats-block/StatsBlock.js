@@ -11,7 +11,7 @@ export function StatsBlock({ character }) {
   return (
     <Formik initialValues={character} enableReinitialize>
       <Form className="stats-block-pane">
-        <h1>{character.name}</h1>
+        <h1 className="stats-block-character-name">{character.name}</h1>
         <RollsPanel />
         <div>
           <Field

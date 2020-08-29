@@ -8,6 +8,6 @@
 .list-character-button {
   flex-basis: 100px;
   flex-grow: 0;
-  flex-shrink: 1;
+  flex-shrink: 0;
   width: 100%;
 }

@@ -1,7 +1,9 @@
 .text-input-label {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding: 8px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .text-input {
