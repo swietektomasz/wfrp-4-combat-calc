@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { CreateCharacterModal } from "src/components";
+import { useModalDispatch } from "src/context";
 
 import "./list.css";
 
-export function List({ characters, select, remove }) {
+export function List({ characters, select, remove, copy, create, edit }) {
   const isPlayer = characters.some((character) => character.isPlayer);
+  const dispatch = useModalDispatch();
 
   return (
     <div className="list-wrapper">
@@ -28,6 +30,13 @@ export function List({ characters, select, remove }) {
           <div className="list-side-buttons">
             <button
               className="list-side-button"
+              onClick={() => {
+                dispatch({
+                  type: "toggle-open",
+                  modal: { open: true, isPlayer: character.isPlayer },
+                });
+                dispatch({ type: "set-current-character", character });
+              }}
               title="Edit character"
               type="button"
             >
@@ -35,6 +44,7 @@ export function List({ characters, select, remove }) {
             </button>
             <button
               className="list-side-button"
+              onClick={copy()}
               title="Copy character"
               type="button"
             >
@@ -51,14 +61,25 @@ export function List({ characters, select, remove }) {
           </div>
         </div>
       ))}
-      <CreateCharacterModal isPlayer={isPlayer} />
+      <button
+        className="open-modal-button"
+        onClick={() =>
+          dispatch({ type: "toggle-open", modal: { open: true, isPlayer } })
+        }
+      >
+        +
+      </button>
+      <CreateCharacterModal isPlayer={isPlayer} create={create} edit={edit} />
     </div>
   );
 }
 
 List.propTypes = {
   characters: PropTypes.arrayOf(PropTypes.object),
+  copy: PropTypes.func,
+  create: PropTypes.func,
+  edit: PropTypes.func,
   onClick: PropTypes.func,
-  select: PropTypes.func,
   remove: PropTypes.func,
+  select: PropTypes.func,
 };

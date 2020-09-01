@@ -3,14 +3,23 @@ import PropTypes from "prop-types";
 
 import { List } from "shared";
 import { useCharacterDispatch } from "src/context";
-import { useRemoveCharacter } from "src/graphql";
+import { useRemoveCharacter, useCreateCharacter } from "src/graphql";
 
 import "./character-list.css";
 
 export function CharacterList({ characters }) {
   const dispatch = useCharacterDispatch();
 
+  const { createCharacterMutation } = useCreateCharacter();
   const { removeCharacterMutation } = useRemoveCharacter();
+
+  const copyCharacter = () => {};
+
+  const editCharacter = () => {};
+
+  const createCharacter = async (values) => {
+    await createCharacterMutation({ ...values });
+  };
 
   const selectCharacter = (id, isPlayer) => () => {
     if (isPlayer) {
@@ -22,9 +31,12 @@ export function CharacterList({ characters }) {
   return (
     <div className="character-list-wrapper">
       <List
+        characters={characters}
+        copy={copyCharacter}
+        create={createCharacter}
+        edit={editCharacter}
         remove={removeCharacterMutation}
         select={selectCharacter}
-        characters={characters}
       />
     </div>
   );

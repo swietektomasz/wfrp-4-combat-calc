@@ -9,6 +9,10 @@ query getAllCharacters {
         skillName
         value
       }
+      defense {
+        skillName
+        value
+      }
     }
     stats {
       health

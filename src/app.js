@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Layout } from "./components";
-import { CharacterProvider } from "./context";
+import { CombinedProvider } from "./context";
 
 import "./app.css";
 import { client } from "./graphql";
@@ -23,9 +23,9 @@ library.add(fab, faDice, faDiceD20, faShieldAlt, faEdit, faCopy, faTrash);
 function App() {
   return (
     <ApolloProvider client={client}>
-      <CharacterProvider>
+      <CombinedProvider>
         <Layout />
-      </CharacterProvider>
+      </CombinedProvider>
     </ApolloProvider>
   );
 }
