@@ -14,15 +14,16 @@ module.exports = (db) => ({
 
       return result;
     },
-    removeCharacter: async (_, { input: { _id } }) => {
+    deleteCharacter: async (_, { input: { _id } }) => {
       await db.collection("characters").deleteOne({ _id: ObjectID(_id) }, true);
     },
     updateCharacter: async (_, { input: { character } }) => {
+      const { _id, ...stats } = character;
       const result = await db
         .collection("characters")
-        .updateOne({ _id: character._id }, { ...character })
+        .updateOne({ _id: ObjectID(_id) }, { $set: { ...stats } })
         .then(({ acknowledged, matchedCount, modifiedCount }) => {
-          acknowledged, matchedCount, modifiedCount;
+          return acknowledged, matchedCount, modifiedCount;
         });
 
       return result;

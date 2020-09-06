@@ -1,0 +1,7 @@
+mutation UpdateCharacter($input: UpdateCharacterInput!) {
+  updateCharacter(input: $input) {
+    acknowledged
+    matchedCount
+    modifiedCount
+  }
+}

@@ -77,6 +77,7 @@ module.exports = gql`
   }
 
   input CharacterInput {
+    _id: String
     isPlayer: Boolean
     name: String
     lastRoll: Int
@@ -86,16 +87,27 @@ module.exports = gql`
     armour: ArmourInput
   }
 
-  input RemoveCharacterInput {
+  input DeleteCharacterInput {
     _id: String!
+  }
+
+  input UpdateCharacterInput {
+    character: CharacterInput
   }
 
   type Query {
     allCharacters: [Character]
   }
 
+  type UpdateResolution {
+    acknowledged: Boolean
+    matchedCount: Int
+    modifiedCount: Int
+  }
+
   type Mutation {
     createCharacter(input: CreateCharacterInput!): Character
-    removeCharacter(input: RemoveCharacterInput!): Character
+    deleteCharacter(input: DeleteCharacterInput!): Character
+    updateCharacter(input: UpdateCharacterInput): UpdateResolution
   }
 `;

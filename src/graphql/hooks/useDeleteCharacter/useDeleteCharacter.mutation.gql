@@ -1,0 +1,5 @@
+mutation DeleteCharacter($input: DeleteCharacterInput!) {
+  deleteCharacter(input: $input) {
+    _id
+  }
+}

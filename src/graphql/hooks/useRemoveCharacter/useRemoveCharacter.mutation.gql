@@ -1,5 +1,0 @@
-mutation RemoveCharacter($input: RemoveCharacterInput!) {
-  removeCharacter(input: $input) {
-    _id
-  }
-}
