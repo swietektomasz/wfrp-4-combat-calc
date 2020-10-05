@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StatsBlock, CharacterList } from "src/components";
+import { StatsBlock, CharacterList, CombatFeed } from "src/components";
 import { useCharacterState } from "src/context";
 
 import "./layout.css";
@@ -17,7 +17,9 @@ export function Layout() {
         <div className="layout-player-stats">
           <StatsBlock character={playerById} />
         </div>
-        <div className="layout-action-pane">Attack/defend buttons</div>
+        <div className="layout-action-pane">
+          <CombatFeed />
+        </div>
         <div className="layout-enemy-stats">
           <StatsBlock character={enemyById} />
         </div>

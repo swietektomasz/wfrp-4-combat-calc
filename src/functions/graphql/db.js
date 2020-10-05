@@ -2,7 +2,7 @@ const MongoClient = require("mongodb").MongoClient;
 const URI = process.env.DATABASE_URI;
 
 let cachedDb = null;
-module.exports = () => {
+const connectToMongoDB = () => {
   if (cachedDb && cachedDb.serverConfig.isConnected()) {
     return Promise.resolve(cachedDb);
   }
@@ -14,3 +14,5 @@ module.exports = () => {
     return cachedDb;
   });
 };
+
+module.exports = { connectToMongoDB };

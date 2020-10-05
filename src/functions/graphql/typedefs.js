@@ -1,6 +1,6 @@
 const { gql } = require("apollo-server-lambda");
 
-module.exports = gql`
+const typeDefs = gql`
   type CombatSkill {
     skillName: String
     value: Int
@@ -95,8 +95,17 @@ module.exports = gql`
     character: CharacterInput
   }
 
-  type Query {
-    allCharacters: [Character]
+  type Message {
+    _id: ID!
+    text: String
+  }
+
+  input CreateMessageInput {
+    text: String
+  }
+
+  input DeleteMessageInput {
+    _id: String!
   }
 
   type UpdateResolution {
@@ -105,9 +114,18 @@ module.exports = gql`
     modifiedCount: Int
   }
 
+  type Query {
+    allCharacters: [Character]
+    allMessages: [Message]
+  }
+
   type Mutation {
     createCharacter(input: CreateCharacterInput!): Character
     deleteCharacter(input: DeleteCharacterInput!): Character
     updateCharacter(input: UpdateCharacterInput): UpdateResolution
+    createMessage(input: CreateMessageInput!): Message
+    deleteMessage(input: DeleteMessageInput!): Message
   }
 `;
+
+module.exports = { typeDefs };

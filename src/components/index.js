@@ -4,3 +4,4 @@ export * from "./rolls-panel";
 export * from "./character-profile";
 export * from "./character-list";
 export * from "./create-character-modal";
+export * from "./combat-feed";

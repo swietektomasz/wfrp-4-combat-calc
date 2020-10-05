@@ -1,7 +1,8 @@
 const { ApolloServer } = require("apollo-server-lambda");
-const connectToMongoDB = require("./graphql/db");
-const typeDefs = require("./graphql/typedefs");
-const resolvers = require("./graphql/resolvers");
+
+const { connectToMongoDB } = require("./graphql/db");
+const { typeDefs } = require("./graphql/typedefs");
+const { resolvers } = require("./graphql/resolvers");
 
 exports.handler = async function (event, context) {
   const db = await connectToMongoDB();

@@ -1,0 +1,33 @@
+.combat-feed-wrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.combat-feed-message {
+  display: flex;
+  flex-direction: column;
+  flex-basis: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px grey solid;
+  padding: 8px;
+}
+
+.combat-feed-message-header {
+  font-weight: bold;
+  display: flex;
+}
+
+.combat-feed-message-content {
+  padding: 8px;
+}
+
+.combat-feed-message-footer {
+  text-align: end;
+}
+.combat-feed-message-date {
+  align-self: flex-end;
+  margin: 0 8px;
+}

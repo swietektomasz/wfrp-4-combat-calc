@@ -1,9 +1,10 @@
 const ObjectID = require("mongodb").ObjectID;
 
-module.exports = (db) => ({
+const resolvers = (db) => ({
   Query: {
     allCharacters: async () =>
       await db.collection("characters").find().toArray(),
+    allMessages: async () => await db.collection("messages").find().toArray(),
   },
   Mutation: {
     createCharacter: async (_, { input: { character } }) => {
@@ -23,10 +24,23 @@ module.exports = (db) => ({
         .collection("characters")
         .updateOne({ _id: ObjectID(_id) }, { $set: { ...stats } })
         .then(({ acknowledged, matchedCount, modifiedCount }) => {
-          return acknowledged, matchedCount, modifiedCount;
+          return { acknowledged, matchedCount, modifiedCount };
         });
 
       return result;
     },
+    createMessage: async (_, { input: { message } }) => {
+      const result = await db
+        .collection("messages")
+        .insertOne({ ...message })
+        .then(({ insertedId }) => ({ _id: insertedId }));
+
+      return result;
+    },
+    deleteMessage: async (_, { input: { _id } }) => {
+      await db.collection("messages").deleteOne({ _id: ObjectID(_id) }, true);
+    },
   },
 });
+
+module.exports = { resolvers };
